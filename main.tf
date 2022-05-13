@@ -10,19 +10,19 @@ terraform {
 }
 
 provider "google" {
-  region     = var.region
+  region = var.region
 }
 
 module "backend-bucket" {
   source  = "terraform-google-modules/cloud-storage/google"
   version = "3.2.0"
 
-    project_id = var.project_id
+  project_id = var.project_id
 
   names    = [for name in var.state_bucket_name : name]
   prefix   = var.state_bucket_prefix
   location = var.region
 
   storage_class = var.state_bucket_storage_class
-  versioning    = {for name in var.state_bucket_name : name => true}
+  versioning    = { for name in var.state_bucket_name : name => true }
 }
