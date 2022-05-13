@@ -6,6 +6,8 @@ terraform {
     }
   }
 
+  backend "gcs" {}
+
   required_version = ">= 1.1.7"
 }
 
@@ -19,10 +21,10 @@ module "backend-bucket" {
 
   project_id = var.project_id
 
-  names    = [for name in var.state_bucket_name : name]
+  names    = [var.state_bucket_name]
   prefix   = var.state_bucket_prefix
   location = var.region
 
   storage_class = var.state_bucket_storage_class
-  versioning    = { for name in var.state_bucket_name : name => true }
+  versioning    = { "${var.state_bucket_name}" = true }
 }

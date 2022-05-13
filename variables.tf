@@ -10,7 +10,7 @@ variable "region" {
 
 variable "state_bucket_name" {
   description = "state 저장 용 버킷의 이름"
-  type        = list(string)
+  type        = string
 }
 
 variable "state_bucket_prefix" {
