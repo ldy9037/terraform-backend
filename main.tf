@@ -24,5 +24,5 @@ module "backend-bucket" {
   location = var.region
 
   storage_class = var.state_bucket_storage_class
-  #versioning    = {for name in var.state_bucket_name : name => name}
+  versioning    = {for name in var.state_bucket_name : name => true}
 }
