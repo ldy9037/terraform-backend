@@ -72,6 +72,7 @@ terraform init \
 - [Terraform GCP Provider](https://registry.terraform.io/providers/hashicorp/google/latest/docs)
 - [Terraform Backend Type: GCS](https://www.terraform.io/language/settings/backends/gcs)
 - [Terraform State 정리](https://harmonious-lan-9d2.notion.site/Terraform-State-79a2e5707e944055a07b3386da9b6491)
+- [GCP KMS 정리](https://harmonious-lan-9d2.notion.site/GCP-KMS-cc9b611b88b74ebcb370ae91120b78c0)
 
 ## 제작자
 [ldy9037@naver.com]()
