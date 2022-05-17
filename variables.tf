@@ -57,3 +57,12 @@ variable "key_rotation_period" {
   description = "key 순환 주기"
   type        = string
 }
+
+variable "audit_log_config" {
+  description = "GCS 감사로그 설정 정보"
+  type = list(object({
+    service          = string,
+    log_type         = string,
+    exempted_members = list(string)
+  }))
+}

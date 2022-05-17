@@ -40,7 +40,16 @@ module "backend-bucket" {
   prefix   = var.state_bucket_prefix
   location = var.region
 
-  encryption_key_names = { "${var.state_bucket_name}" = module.kms.keys[var.key_name]}
+  encryption_key_names = { "${var.state_bucket_name}" = module.kms.keys[var.key_name] }
   storage_class        = var.state_bucket_storage_class
   versioning           = { "${var.state_bucket_name}" = true }
+}
+
+module "audit_log" {
+  source  = "terraform-google-modules/iam/google//modules/audit_config"
+  version = "7.4.1"
+
+  project = var.project_id
+
+  audit_log_config = var.audit_log_config
 }
